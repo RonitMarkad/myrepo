@@ -1,0 +1,15 @@
+eid|ename|city
+1|Ronit|Anagar
+2|Raj|Pune
+
+from pyspark.sql import SparkSession
+spark=SparkSession.builder.appName("Csv Processing").getOrCreate()
+
+df=spark.read.format("CSV").option("delimiter","|").option("header","true").load("D:/Pyspark.csv")
+df.show(100)
+
+df.printSchema()
+print(df.dtypes)
+print(df.schema)
+===========================================================================================================================================
+
